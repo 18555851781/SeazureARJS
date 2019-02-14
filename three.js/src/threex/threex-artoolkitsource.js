@@ -11,6 +11,8 @@ ARjs.Source = THREEx.ArToolkitSource = function(parameters){
 	this.parameters = {
 		// type of source - ['webcam', 'image', 'video']
 		sourceType : 'webcam',
+		// ['back', 'front']
+        webcamDirection : 'back',
 		// url of the source - valid if sourceType = image|video
 		sourceUrl : null,
 		
@@ -180,6 +182,18 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 
 	// get available devices
 	navigator.mediaDevices.enumerateDevices().then(function(devices) {
+
+		var backvideoInputID = false;
+		for (var i = devices.length-1;i>=0;i--)
+		{
+            if(
+                devices[i].kind === 'videoinput' &&
+                devices[i].label.indexOf("back") !== -1
+            ) {
+                backvideoInputID = devices[i].deviceId;
+            }
+		}
+
                 var userMediaConstraints = {
 			audio: false,
 			video: {
