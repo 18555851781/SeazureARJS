@@ -186,6 +186,8 @@ ARjs.Source.prototype._initSourceWebcam = function(onReady, onError) {
 		var backvideoInputID = false;
 		for (var i = devices.length-1;i>=0;i--)
 		{
+			console.log(devices[i].toString());
+
             if(
                 devices[i].kind === 'videoinput' &&
                 devices[i].label.indexOf("back") !== -1
