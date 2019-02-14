@@ -55961,7 +55961,7 @@ THREEx.ArToolkitSource.prototype._initSourceWebcam = function (onReady) {
                 camreass.push(e.deviceId)
             }
         })
-        console.log(camreass + "this is Cam")
+        console.log(camreass + "this is Cam HHHHHHHHHHHHHHHHHH")
         var userMediaConstraints = {
             audio: false,
             video: {
